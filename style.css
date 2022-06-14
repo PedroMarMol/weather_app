@@ -11,6 +11,15 @@ body {
     /* background-image: url(); */
 }
 
+.icon {
+
+}
+
+.description {
+    text-transform: capitalize;
+    margin-left: 8px;
+}
+
 .card {
     background: #000000d0;
     color: white;
@@ -58,4 +67,10 @@ button:hover {
 
 h1.temp {
     margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.flex { 
+    display: flex;
+    align-items: center;
 }
