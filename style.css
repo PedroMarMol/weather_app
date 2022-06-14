@@ -11,10 +11,6 @@ body {
     /* background-image: url(); */
 }
 
-.icon {
-
-}
-
 .description {
     text-transform: capitalize;
     margin-left: 8px;
@@ -73,4 +69,19 @@ h1.temp {
 .flex { 
     display: flex;
     align-items: center;
+}
+
+.weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 50px;
 }
