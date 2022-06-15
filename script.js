@@ -1,13 +1,20 @@
+const API_KEY = "33c84682a93a3fd15895167ae69d2ff0"; 
+
 let weather = {
-    apiKey: "33c84682a93a3fd15895167ae69d2ff0",
     fetchWeather: function(city) {
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" 
             + city 
             + "&units=metric&appid=" 
-            + this.apiKey
+            + API_KEY
         ).then((response) => response.json())
-        .then((data) => this.displayWeather(data));
+        .then((data) => {
+            this.displayWeather(data)
+            setBackgroundImage(city)
+        })
+        .catch(() {
+            displayError()
+        })
     },
     displayWeather: function(data) {
         const { name } = data;
@@ -21,8 +28,7 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
-        document.querySelector(".weather").classList.remove("loading");
-        // document.body.style.backgroundImage = "url("url-source" + name)"; 
+        document.querySelector(".weather").classList.remove("loading"); 
     },
     search: function () {
         this.fetchWeather(document.querySelector(".search-bar").value);
